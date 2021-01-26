@@ -1,0 +1,35 @@
+﻿@page
+@model LoginModel
+    
+<a class="btn btn-primary" asp-controller="Home" asp-action="Index" role="button"><i class="fa fa-arrow-left"></i></a><br /><br />
+<h3 class="login-heading mb-4">Hi! Welcome back</h3>
+<div asp-validation-summary="All" class="text-danger"></div>
+<form id="account" method="post">
+    <div class="form-label-group">
+        <input type="email" asp-for="Input.Email" class="form-control" placeholder="Email address" autofocus>
+        <label asp-for="Input.Email"></label>
+    </div>
+
+    <div class="form-label-group">
+        <input type="password" asp-for="Input.Password" class="form-control" placeholder="Password">
+        <label asp-for="Input.Password"></label>
+    </div>
+
+    <div class="custom-control custom-checkbox mb-3">
+        <input type="checkbox" class="custom-control-input" asp-for="Input.RememberMe">
+        <label class="custom-control-label" asp-for="Input.RememberMe">@Html.DisplayNameFor(m => m.Input.RememberMe)</label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign in</button>
+    <div class="text-center">
+        <a class="small" id="forgot-password" asp-page="./ForgotPassword">Forgot password?</a>
+    </div>
+    <br />
+    <div class="text-center">
+        <a class="small" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Not a member? Register now!</a>
+    </div>
+</form>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

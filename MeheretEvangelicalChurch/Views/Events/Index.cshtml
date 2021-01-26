@@ -1,0 +1,29 @@
+﻿@model IEnumerable<MeheretEvangelicalChurch.Models.Events>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="fullwidth-block">
+        <div class="container">
+            <div class="row">
+                <div class="content col-md-8">
+                    <h2 class="section-title">Upcoming Events</h2>
+                    <ul class="event-list large">
+                        @foreach (var item in Model)
+                         {
+                            <li>
+                                <h3 class="event-title">@Html.DisplayFor(modelItem => item.EventTitle)</h3>
+                                <span class="event-meta">
+                                    <span><i class="fa fa-calendar"></i>@Html.DisplayFor(modelItem => item.EventDate)</span>
+                                    <span><i class="fa fa-map-marker"></i>Kitchener</span>
+                                </span>
+                                <img src="@Html.DisplayFor(modelItem => item.EventImage)" width="450" height="200" />
+                            </li>
+                         }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,98 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using MeheretEvangelicalChurch.Areas.Identity.Data
+@inject SignInManager<MeheretEvangelicalChurchUser> SignInManager
+@inject UserManager<MeheretEvangelicalChurchUser> UserManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MeheretEvangelicalChurch</title>
+    <!-- Loading third party fonts -->
+    <link href="~/fonts/novecento-font/novecento-font.css" rel="stylesheet" type="text/css">
+    <link href="~/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="identity">
+            <partial name="_LoginPartial" />
+        </div>
+        <br />
+        <br />
+        <div class="container">
+            <a href="#" class="branding">
+                <img src="~/images/logo.png" alt="logo icon" class="logo" height="100">
+                <h1 class="site-title">Meheret Evangelical Church</h1>
+            </a>
+            <div class="main-navigation">
+                <ul class="menu">
+                    <li class="menu-item current-menu-item"><a asp-controller="Home" asp-action="Index">Homepage <small>About Us</small></a></li>
+                    <li class="menu-item"><a asp-controller="Home" asp-action="Media">Media <small>See our church</small></a></li>
+                    <li class="menu-item"><a asp-controller="Services" asp-action="Index">Services <small>What we provide</small></a></li>
+                    <li class="menu-item"><a asp-controller="Events" asp-action="Index">Events <small>Join with us</small></a></li>
+                    <li class="menu-item"><a href="#contact">Contact Us <small>Let us know</small></a></li>
+                </ul>
+            </div>
+            <div class="mobile-navigation"></div>
+        </div>
+
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="widget">
+                        <h3 class="widget-title">Our Church</h3>
+                        <p>Litte introduce put here ...</p>
+                        <ul class="address">
+                            <li><i class="fa fa-map-marker"></i> 456 Krug Street, Kitchener, ON, N2B 1L1</li>
+                            @*<li><i class="fa fa-phone"></i> (226) 600-2001</li>*@
+                            @*<li><i class="fa fa-envelope"></i> fasil.asfaw@sympatico.ca</li>*@
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="widget">
+                        <h3 class="widget-title">Put some link for topic...</h3>
+                        <ul class="bullet">
+                            <li><a href="#">Topic ..</a></li>
+                            <li><a href="#">Topic ..</a></li>
+                            <li><a href="#">Topic ..</a></li>
+                            <li><a href="#">Topic ..</a></li>
+                            <li><a href="#">Topic ..</a></li>
+                            <li><a href="#">Topic ..</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4" id="contact">
+                    <div class="widget">
+                        <h3 class="widget-title">Contact form</h3>
+                        <form action="#" class="contact-form">
+                            <div class="row">
+                                <div class="col-md-6"><input type="text" placeholder="Your name..."></div>
+                                <div class="col-md-6"><input type="text" placeholder="Email..."></div>
+                            </div>
+                            <textarea name="" placeholder="Your message..."></textarea>
+                            <div class="text-right"><input type="submit" value="Send message"></div>
+                        </form>
+                    </div>
+                </div>
+            </div> <!-- .row -->
+
+            <p class="colophon">&copy; 2020 Meheret Evangelical Church. All right reserved</p>
+        </div><!-- .container -->
+    </footer> <!-- .site-footer -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
